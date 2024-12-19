@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Meenu Sis</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eaf7ff; /* Light blue */
+            background-image: url('background-image.jpg'); /* Replace with your background image */
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            color: #003366; /* Deep blue */
+            height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Title Section */
+        .header {
+            text-align: center;
+            padding: 50px 20px;
+            font-size: 3em;
+            font-weight: bold;
+            color: #ff69b4; /* Hot pink */
+            text-shadow: 2px 2px 4px #000; /* Subtle shadow effect */
+            background-color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 20px;
+            z-index: 10;
+            position: relative;
+        }
+
+        /* Slideshow Container */
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 100px);
+        }
+
+        /* Each Slide */
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* Image Styling */
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Quote Text */
+        .quote {
+            text-align: center;
+            font-size: 1.8em;
+            color: #ffffff;
+            background: rgba(0, 51, 102, 0.6); /* Deep blue with transparency */
+            padding: 15px;
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            border-radius: 10px;
+        }
+
+        /* Navigation Arrows */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            color: #ff69b4;
+            font-weight: bold;
+            font-size: 24px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            user-select: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: #ff69b4;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+
+        /* Floating Hearts */
+        .heart {
+            position: fixed;
+            bottom: -50px;
+            font-size: 30px;
+            color: #ff69b4; /* Hot pink hearts */
+            animation: floatHeart 5s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        /* Floating Heart Animation */
+        @keyframes floatHeart {
+            0% {
+                transform: translateX(0) translateY(0);
+            }
+            25% {
+                transform: translateX(50px) translateY(-200px);
+            }
+            50% {
+                transform: translateX(-50px) translateY(-400px);
+            }
+            75% {
+                transform: translateX(30px) translateY(-600px);
+            }
+            100% {
+                transform: translateX(0) translateY(-800px);
+                opacity: 0;
+            }
+        }
+
+        /* Color Input Slide */
+        .color-slide {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            text-align: center;
+            color: #003366;
+            font-size: 1.8em;
+        }
+
+        .color-slide input {
+            font-size: 1.2em;
+            padding: 10px;
+            margin-top: 20px;
+            width: 60%;
+            border-radius: 5px;
+            border: 1px solid #003366;
+            background-color: #f1f1f1;
+            color: #003366;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Title Section -->
+<div class="header">
+    Happy Birthday Meenu Sis
+</div>
+
+<!-- Slideshow Section -->
+<div class="slideshow-container">
+    <!-- Slide 1 -->
+    <div class="slide">
+        <img src="photo-1.jpg" alt="Photo 1">
+        <div class="quote">"In you, I’ve found a sister so true, A light in the dark, a beautiful hue"</div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+        <img src="photo-2.jpg" alt="Photo 2">
+        <div class="quote">"You’ve turned my struggles into stories of gain, A sister like you makes sunshine from rain."</div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide">
+        <img src="photo-3.jpg" alt="Photo 3">
+        <div class="quote">"You’re the sister I chose, a treasure so rare, Your strength and kindness show how much you care."</div>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="slide">
+        <img src="photo-4.jpg" alt="Photo 4">
+        <div class="quote">"In life’s toughest moments, you’ve been my guide, A sister in spirit, always by my side."</div>
+    </div>
+
+    <!-- Slide 5 -->
+    <div class="slide">
+        <img src="photo-5.jpg" alt="Photo 5">
+        <div class="quote">"Not by birth, but by bond we stand, Forever together, hand in hand."</div>
+    </div>
+
+    <!-- Slide 6 (Color Input) -->
+    <div class="slide color-slide">
+        <div>What is your favorite color?</div>
+        <input type="text" id="color-input" placeholder="Enter your favorite color here">
+        <button onclick="checkColor()">Submit</button>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<!-- Floating Hearts -->
+<div id="hearts-container"></div>
+
+<script>
+    function createHearts() {
+        const heartsContainer = document.getElementById('hearts-container');
+        for (let i = 0; i < 15; i++) {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '&#10084;';
+            heart.style.left = `${Math.random() * 100}vw`;
+            heart.style.animationDelay = `${Math.random() * 5}s`;
+            heartsContainer.appendChild(heart);
+        }
+    }
+
+    window.onload = createHearts;
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function showSlides(n) {
+        const slides = document.getElementsByClassName("slide");
+        if (n >= slides.length) slideIndex = 0;
+        if (n < 0) slideIndex = slides.length - 1;
+
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex].style.display = "block";
+    }
+
+    let slideIndex = 0;
+    showSlides(slideIndex);
+
+    function checkColor() {
+        const color = document.getElementById("color-input").value.toLowerCase().trim();
+        if (color === "blue") {
+            window.location.href = "photo-page.html"; // Replace with your actual page
+        } else {
+            alert("Sorry, only 'blue' is accepted.");
+        }
+    }
+</script>
+
+</body>
+</html>
